@@ -63,7 +63,9 @@ angular.module('opentok', [])
           this.trigger('init');
         }
       };
-      OT.$.eventing(OTSession);
+      // NOTE: internal openTokInternalApi API
+      var openTokInternalApi = OT.$ || OT.getHelper(); //getHelper works with the official cordova opentok.js
+      openTokInternalApi.eventing(OTSession);
       return OTSession;
     }
   ])
